@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -12,15 +13,17 @@
     </header>
     <article>
         <div class="side">
-          <p>サイドバー</p>
-          {{--ツイート一覧
-            プロフィール
-            ログアウト --}}
+            <p>MENU</p>
+            <ul>
+                <li>ツイート一覧</li>
+                <li>プロフィール</li>
+                <li>ログアウト</li>
         </div>
         <div class="content">
-          <p>メインコンテンツ</p>
+          <p>タイムライン</p>
+
         </div>
-      </article>
+    </article>
 
 </body>
 </html>
