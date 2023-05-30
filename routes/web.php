@@ -1,9 +1,9 @@
 <?php
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HiyokoUserController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\Others\OtherProfileController;
+use App\Http\Controllers\Others\OthersController;
 
 Route::get('/', [TweetController::class, 'index'])->middleware(['auth', 'verified']);
 
@@ -20,7 +20,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/{user_id}', [OtherProfileController::class, 'index'])->name('other.show');
+
+Route::get('/{user_id}/follow', [OthersController::class, 'follow'])->name('other.follow');
+Route::get('/{user_id}/follower', [OthersController::class, 'follower'])->name('other.follower');
 
 
-Route::resource('hiyokousers', HiyokoUserController::class);
 Route::resource('tweets', TweetController::class);
