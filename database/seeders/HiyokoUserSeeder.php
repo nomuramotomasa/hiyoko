@@ -14,7 +14,7 @@ class HiyokoUserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('hiyoko_user')->insert([
+        DB::table('hiyoko_users')->insert([
             [
                 'name' => '野村',
                 'email' => 'motomasa@test1.com',
