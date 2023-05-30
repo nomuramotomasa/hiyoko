@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
     <header>
         <h1 class="title">ぴよったー</h1>
     </header>
