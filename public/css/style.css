@@ -3,21 +3,31 @@
 body {
     font-family:'Noto Sans JP',sans-serif;
     background-color:#f6f5f4;
+    background-image:url(../images/background.png)
  }
 
  .side {
-   background-color:#f0f0ab;
-   width:100px;
-   height:300px;
-   text-align:center;
+   background-color:#ffcc89;
+   width:200px;
+   height:900px;
+   /* text-align:center; */
+ }
+
+ .side li {
+    margin-bottom: 30px;
+ }
+
+ .side p {
+    text-align:center;
+    margin-bottom: 40px;
  }
 
  .content {
-   background-color:#cf9a65;
-   width:250px;
-   height:300px;
+   background-color:#ffffffff;
+   width:850px;
+   height:900px;
    text-align:center;
-   margin-left:10px;/*サイドバーとメインコンテンツの間に隙間をあけた*/
+   margin-left:40px;/*サイドバーとメインコンテンツの間に隙間をあけた*/
  }
 
  article {
