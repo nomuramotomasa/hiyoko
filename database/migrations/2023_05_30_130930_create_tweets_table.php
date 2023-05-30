@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('hiyoko_users');
+            $table->foreignId('user_id')->constrained('users');
             $table->integer('favorite');
             $table->text('tweet');
             $table->timestamp('post_date')->nullable();

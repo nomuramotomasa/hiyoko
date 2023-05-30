@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('hiyoko_users');
-            $table->foreignId('follow_id')->constrained('hiyoko_users');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('follow_id')->constrained('users');
         });
     }
 
