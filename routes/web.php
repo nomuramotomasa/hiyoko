@@ -7,6 +7,10 @@ use App\Http\Controllers\Others\OtherProfileController;
 
 Route::get('/', [TweetController::class, 'index'])->middleware(['auth', 'verified']);
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 require __DIR__.'/auth.php';
 
 
