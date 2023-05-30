@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('hiyoko_users');
             $table->integer('favorite');
             $table->text('tweet');
-            $table->timestamps('post_date');
+            $table->timestamps();
         });
     }
 
