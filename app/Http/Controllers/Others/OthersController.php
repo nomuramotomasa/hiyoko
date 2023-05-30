@@ -14,16 +14,16 @@ class OthersController extends Controller
     public function follow(string $id)
     {
         $user = User::find($id);
-        $follow = Follow::where('user_id', $id)->get();
+        $follows = Follow::where('user_id', $id)->get();
 
-        return view('.show', compact('user', 'follow'));
+        return view('number.follow', compact('user', 'follows'));
     }
 
     public function follower(string $id)
     {
         $user = User::find($id);
-        $follower = Follow::where('follow_id', $id)->get();
+        $followers = Follow::where('follow_id', $id)->get();
 
-        return view('.show', compact('user', 'follow'));
+        return view('number.follower', compact('user', 'followers'));
     }
 }
