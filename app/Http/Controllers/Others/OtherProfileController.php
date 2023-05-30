@@ -8,15 +8,13 @@ use App\Models\User;
 
 class OtherProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function show_profile(string $id)
     {
         $user = User::find($id);
         $follow = Follow::where('user_id', $id)->get()->count();
         $follower = Follow::where('follow_id', $id)->get()->count();
 
-        return view('.show', compact('user', 'follow', 'follower'));
+        return view('number.show_profile', compact('user', 'follow', 'follower'));
     }
 }
