@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tweet;
 
 class TweetController extends Controller
 {
@@ -11,7 +12,8 @@ class TweetController extends Controller
      */
     public function index()
     {
-        //
+        $tweets = Tweet::all();
+        return view('tweets.index', compact('tweets'));
     }
 
     /**
@@ -19,7 +21,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        //
+        return view('tweets.create');
     }
 
     /**
@@ -27,7 +29,14 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'tweet' => ['string','required', 'min:1', 'max:140'],
+        ]);
+
+        $tweet = new Tweet;
+        $tweet->tweet = $request->tweet;
+        $tweet->save();
+        return redirect('tweets.index')->with('flash_message', '投稿が完了しました。');
     }
 
     /**
@@ -35,30 +44,36 @@ class TweetController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('tweets.show', compact('tweet'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    // public function edit(string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    // public function update(Request $request, string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        //
+{
+    $tweet = Tweet::find($id);
+
+    if ($tweet) {
+        $tweet->delete();
+        return redirect()->route('tweets.index')->with('flash_message', '投稿を削除しました。');
     }
+}
+
 }
