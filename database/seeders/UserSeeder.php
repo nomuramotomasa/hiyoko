@@ -17,9 +17,32 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => '野村',
-                'email' => 'test@test.com',
-                'password' => Hash::make('tuna2700')
+                'email' => 'motomasa@test1.com',
+                'password' => Hash::make('password123'),
+                'image' => 'テスト',
+                'profile_id' => 'test1',
+                'profile' => 'おはよう',
             ],
+            [
+                'name' => '小山',
+                'email' => 'yushi@test2.com',
+                'password' => Hash::make('password123'),
+                'image' => 'テスト',
+                'profile_id' => 'test2',
+                'profile' => 'こんにちは',
+            ],
+            [
+                'name' => '君和田',
+                'email' => 'suzune@test3.com',
+                'password' => Hash::make('password123'),
+                'image' => 'テスト',
+                'profile_id' => 'test3',
+                'profile' => 'こんばんわ',
+            ],
+        ]);
+    }
+}
+
 
 
             // [
@@ -43,6 +66,4 @@ class UserSeeder extends Seeder
             //     'review' => '1.5',
             //     'is_visible' => 'false',
             // ],
-        ]);
-    }
-}
+    
