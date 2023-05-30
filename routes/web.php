@@ -5,14 +5,7 @@ use App\Http\Controllers\HiyokoUserController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\Others\OtherProfileController;
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [TweetController::class, 'index'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
 
