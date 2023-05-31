@@ -16,7 +16,6 @@ class OthersController extends Controller
     {
         $user = User::find($id);
         $follows = Follow::with('user')->where('follow_id', $id)->get();
-        dd($follows);
 
         return view('number.follow', compact('user', 'follows'));
     }
