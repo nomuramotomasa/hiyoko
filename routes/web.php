@@ -22,6 +22,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/user_search', [SearchController::class, 'index'])->name('search.index');
+Route::get('/user_search', [SearchController::class, 'search'])->name('search.search');
 
 Route::get('/other/{user_id}', [OtherProfileController::class, 'show_profile'])->name('other.show');
 
