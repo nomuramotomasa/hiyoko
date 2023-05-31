@@ -19,17 +19,24 @@
                 <li><a href="{{ route('tweets.index') }}">ツイート一覧</a></li>
                 <li><a href="{{ route('tweets.index') }}">ログアウト</a></li>
         </div>
-        {{-- <div class="content">
-          <p>投稿画面</p>
-          <form action="{{ route('tweets.store')}}" method="post">
-            <label for="message">メッセージ:</label><br>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
-            <input type="submit" value="投稿する">
-            <a href="{{ route('tweetss.index') }}" >一覧に戻る</a>
+        <div class="content">
+            <p>あなたのつぶやき</p>
+            @foreach ($tweets as $tweet)
+            <form action="{{ route('tweets.destroy', $tweet->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">削除</button>
+            </form>
+        @endforeach
+        {{-- <form action="{{ route('tweets.destroy', $tweet->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">削除</button>
+        </form> --}}
 
             @foreach ($errors->all() as $error)
             <li> <span class="error">{{ $error }}</span></li>
-            @endforeach --}}
+            @endforeach
         </div>
     </article>
     <footer>

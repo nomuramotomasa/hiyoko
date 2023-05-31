@@ -44,17 +44,42 @@ body {
     margin-bottom: 40px;
  }
 
-.ul{
+.ul {
     list-style: url(../images/tamago.png);
     list-style-position: inside;
 }
+
  .content {
    background-color:#ffffffff;
    width:850px;
    height:900px;
-   text-align:center;
    margin-left:40px;/*サイドバーとメインコンテンツの間に隙間をあけた*/
+   text-align:center;
+   overflow-wrap: break-word;
  }
+
+ .btn_a {
+	width: 60px;
+	height: 38px;
+	background: #FFF;
+	border: 1px solid #ffc400;
+	border-radius: 70px;
+	-moz-border-radius: 70px;
+	-webkit-border-radius: 70px;
+	color: #ffc400;
+	padding: 42px 20px 20px;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+	transition: background-color 0.5s ease-in;
+	-webkit-transition: background-color 0.5s ease-in;
+}
+.btn_a:hover {
+	background: #ffc400;
+	color: #FFF;
+	border: 1px solid #FFF;
+}
 
  article {
    display:flex;/*サイドバーとメインコンテンツを横並びにする指定をした*/
