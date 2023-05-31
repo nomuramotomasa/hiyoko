@@ -12,13 +12,15 @@
         <h1><a href="{{ route('tweets.index') }}"><img src="..\images\logo.png" alt="ぴよったー"></a></h1>
     </header>
     <article>
+        @foreach ( $tweets as $tweet )
         <div class="side">
             <p>MENU</p>
             <ul>
                 <li><a href="{{ route('tweets.index') }}">プロフィール</a></li>
-                <li><a href="{{ route('tweets.show') }}">ツイート一覧</a></li>
+                <li><a href="{{ route('tweets.show', $tweet->id) }}">ツイート一覧</a></li>
                 <li><a href="{{ route('tweets.index') }}">ログアウト</a></li>
         </div>
+        @endforeach
         <div class="content">
           <p>タイムライン</p>
             {{-- タイムラインを表示させる --}}
