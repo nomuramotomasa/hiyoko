@@ -32,3 +32,6 @@ Route::get('/{user_id}/follower', [OthersController::class, 'follower'])->name('
 
 
 Route::resource('tweets', TweetController::class);
+
+
+

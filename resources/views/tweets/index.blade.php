@@ -14,7 +14,7 @@
     <article>
         <div class="side">
             <p>MENU</p>
-            <ul>
+            <ul style="list-style: none;">
                 <li><a href="{{ route('tweets.index') }}">プロフィール</a></li>
                 <li><a href="#">ツイート一覧</a></li>
                 <li><a href="{{ route('tweets.index') }}">ログアウト</a></li>
@@ -23,11 +23,13 @@
           <p>タイムライン</p>
             {{-- タイムラインを表示させる --}}
             @foreach ($tweets as $tweet)
-            <ul>
+            <ul style="list-style: none;">
                 <li>{{$tweet->tweet}}</li>
+                <li>{{$tweet->favorite}}</li>
             </ul>
             @endforeach
         </div>
+        <p><a class="btn_a" href="{{ route('tweets.create') }}">tweet</a></p>
     </article>
     <footer>
         <p>© 2023 株式会社コアテック. All rights reserved.</p>
