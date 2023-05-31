@@ -54,6 +54,8 @@ body {
    width:850px;
    height:900px;
    margin-left:40px;/*サイドバーとメインコンテンツの間に隙間をあけた*/
+   margin-top: 0;
+   margin-bottom: 10px;
    text-align:center;
    overflow-wrap: break-word;
  }
@@ -74,6 +76,7 @@ body {
 	font-size: 120%;
 	transition: background-color 0.5s ease-in;
 	-webkit-transition: background-color 0.5s ease-in;
+    position: fixed;
 }
 .btn_a:hover {
 	background: #ffc400;
