@@ -17,7 +17,14 @@
             <ul style="list-style: none;">
                 <li><a href="{{ route('tweets.index') }}">プロフィール</a></li>
                 <li><a href="#">ツイート一覧</a></li>
-                <li><a href="{{ route('tweets.index') }}">ログアウト</a></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    ログアウト
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                </li>
+                {{-- <li><a href="{{ route('tweets.index') }}">ログアウト</a></li> --}}
         </div>
         <div class="content">
           <p>タイムライン</p>

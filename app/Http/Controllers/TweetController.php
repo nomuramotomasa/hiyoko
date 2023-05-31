@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\tweet;
 use Illuminate\Support\Facades\Auth;
 
+
 class TweetController extends Controller
 {
     /**
@@ -40,7 +41,8 @@ class TweetController extends Controller
         // dd($request,Auth::id());
         $tweet->favorite = 0;
         $tweet->save();
-        return redirect('tweets')->with('flash_message', '投稿が完了しました。');
+        return redirect()->route('tweets.index')->with('flash_message', '投稿が完了しました。');
+        // return redirect('tweets')->with('flash_message', '投稿が完了しました。');
     }
 
     /**
@@ -83,5 +85,11 @@ class TweetController extends Controller
         return redirect()->route('tweets.index')->with('flash_message', '投稿を削除しました。');
     }
 }
+
+public function logout()
+    {
+        Auth::logout();
+        return redirect('/')->with('flash_message', 'ログアウトしました');
+    }
 
 }
