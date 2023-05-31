@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/{user_id}', [OtherProfileController::class, 'index'])->name('other.show');
+Route::get('/{user_id}', [OtherProfileController::class, 'show_profile'])->name('other.show');
 
 Route::get('/{user_id}/follow', [OthersController::class, 'follow'])->name('other.follow');
 Route::get('/{user_id}/follower', [OthersController::class, 'follower'])->name('other.follower');
