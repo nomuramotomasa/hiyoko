@@ -14,7 +14,7 @@
     <article>
         <div class="side">
             <p>MENU</p>
-            <ul>
+            <ul class="image-list-item">
                 <li><a href="{{ route('tweets.index') }}">プロフィール</a></li>
                 <li><a href="{{ route('tweets.index') }}">ツイート一覧</a></li>
                 <li><a href="{{ route('tweets.index') }}">ログアウト</a></li>
@@ -22,10 +22,12 @@
         <div class="content">
           <p>投稿画面</p>
           <form action="{{ route('tweets.store')}}" method="post">
-            <label for="message">メッセージ:</label><br>
-            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
-            <input type="submit" value="投稿する">
-            <a href="{{ route('tweetss.index') }}" >一覧に戻る</a>
+            @csrf
+            <label form="tweet">ツイート:</label><br>
+            <textarea id="tweet" name="tweet" rows="4" cols="50" required></textarea><br>
+            <input type="submit" value="投稿">
+          </form>
+            <a href="{{ route('tweets.index') }}" >トップに戻る</a>
 
             @foreach ($errors->all() as $error)
             <li> <span class="error">{{ $error }}</span></li>

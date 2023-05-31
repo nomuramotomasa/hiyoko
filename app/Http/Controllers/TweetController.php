@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tweet;
+use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
@@ -35,19 +36,24 @@ class TweetController extends Controller
 
         $tweet = new Tweet;
         $tweet->tweet = $request->tweet;
+        $tweet->user_id= Auth::id();
+        // dd($request,Auth::id());
+        $tweet->favorite = 0;
         $tweet->save();
-        return redirect('tweets.index')->with('flash_message', '投稿が完了しました。');
+        return redirect('tweets')->with('flash_message', '投稿が完了しました。');
     }
 
     /**
      * Display the specified resource.
      */
 
-    public function show(string $id)
-    {
-        $tweet = Tweet::find($id);
-        return view('tweets.show', compact('tweet'));
-    }
+     public function show(string $id)
+     {
+         $tweet = Tweet::findOrFail($id);
+
+         return view('tweets.show', compact('tweet'));
+     }
+
 
     /**
      * Show the form for editing the specified resource.
